@@ -1,28 +1,36 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { navLinks } from "../constants";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   const NavItems = () => {
     return (
       <ul className="flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20">
-        {navLinks.map((item) => (
-          <li
-            key={item.id}
-            className="text-neutral-400 hover:text-white sm:w-full sm:rounded-md py-2 sm:px-5"
-          >
-            <a
-              href={item.href}
-              onClick={toggleMenu}
-              className="text-lg md:text-base hover:text-white transition-colors hover:underline"
+        {navLinks.map((item) => {
+          const isHash = item.href.startsWith("#");
+          const href =
+            isHash && location.pathname !== "/" ? `/${item.href}` : item.href;
+
+          return (
+            <li
+              key={item.id}
+              className="text-neutral-400 hover:text-white sm:w-full sm:rounded-md py-2 sm:px-5"
             >
-              {item.name}
-            </a>
-          </li>
-        ))}
+              <a
+                href={href}
+                onClick={toggleMenu}
+                className="text-lg md:text-base hover:text-white transition-colors hover:underline"
+              >
+                {item.name}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     );
   };
