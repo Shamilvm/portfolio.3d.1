@@ -8,6 +8,7 @@ import Projects from "./sections/Projects";
 import Resume from "./sections/Resume";
 import LoaderWrapper from "./components/LoaderWrapper";
 import TargetCursor from "./components/ui/target-cursor";
+import NotFound from "./sections/NotFound";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             }
           />
           <Route path="/resume" element={<Resume />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </LoaderWrapper>
     </Router>
