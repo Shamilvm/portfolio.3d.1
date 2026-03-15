@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const TargetCursor = ({
   targetSelector = ".cursor-target",
@@ -19,6 +19,24 @@ const TargetCursor = ({
     []
   );
 
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined"
+      ? window.innerWidth < 768 ||
+          ("ontouchstart" in window || navigator.maxTouchPoints > 0)
+      : false
+  );
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(
+        window.innerWidth < 768 ||
+          ("ontouchstart" in window || navigator.maxTouchPoints > 0)
+      );
+    };
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const moveCursor = useCallback((x, y) => {
     if (!cursorRef.current) return;
     gsap.to(cursorRef.current, {
@@ -30,6 +48,11 @@ const TargetCursor = ({
   }, []);
 
   useEffect(() => {
+    if (isMobile) {
+      document.body.style.cursor = "auto";
+      return;
+    }
+
     if (!cursorRef.current) return;
 
     const originalCursor = document.body.style.cursor;
@@ -277,9 +300,13 @@ const TargetCursor = ({
       spinTl.current?.kill();
       document.body.style.cursor = originalCursor;
     };
-  }, [targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor]);
+  }, [targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor, isMobile]);
 
   useEffect(() => {
+    if (isMobile) {
+      return;
+    }
+
     if (!cursorRef.current || !spinTl.current) return;
 
     if (spinTl.current.isActive()) {
@@ -290,7 +317,7 @@ const TargetCursor = ({
         ease: "none",
       });
     }
-  }, [spinDuration]);
+  }, [spinDuration, isMobile]);
 
   return (
     <div
