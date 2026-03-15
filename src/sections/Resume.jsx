@@ -8,6 +8,7 @@ import { Achievements } from "./resume/Achievements";
 import { Experience } from "./resume/Experience";
 import { Projects } from "./resume/Projects";
 import { resumeData } from "../constants/index.js";
+import { Contact } from "./resume/Contact";
 
 const Resume = () => {
   return (
@@ -22,6 +23,7 @@ const Resume = () => {
         <Skills data={resumeData.SKILLS} />
         <Education data={resumeData.EDUCATION} />
         <Achievements data={resumeData.ACHIEVEMENTS} />
+        <Contact data={resumeData.HEADER} />
       </div>
 
       <Footer />

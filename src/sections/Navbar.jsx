@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { navLinks } from "../constants";
+import { AnimatedText } from "../components/ui/animated-text";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const Navbar = () => {
 
   const NavItems = () => {
     return (
-      <ul className="flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20">
+      <ul className="flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20 py-2 sm:px-2">
         {navLinks.map((item) => {
           const isHash = item.href.startsWith("#");
           const href =
@@ -19,15 +20,10 @@ const Navbar = () => {
           return (
             <li
               key={item.id}
-              className="text-neutral-400 hover:text-white sm:w-full sm:rounded-md py-2 sm:px-5"
+              className="cursor-target text-neutral-400 hover:text-white sm:w-full sm:rounded-md"
+              onClick={toggleMenu}
             >
-              <a
-                href={href}
-                onClick={toggleMenu}
-                className="text-lg md:text-base hover:text-white transition-colors hover:underline"
-              >
-                {item.name}
-              </a>
+              <AnimatedText href={href}>{item.name}</AnimatedText>
             </li>
           );
         })}

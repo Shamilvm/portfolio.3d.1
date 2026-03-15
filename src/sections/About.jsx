@@ -13,7 +13,7 @@ const About = () => {
   return (
     <section className="c-space my-20" id="about">
       <div className="grid xl:grid-cols-3 xl:grid-rows-3 md:grid-cols-2 grid-cols-1 gap-5 h-full">
-        <div className="col-span-1 xl:row-span-3">
+        <div className="cursor-target col-span-1 xl:row-span-3">
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col justify-between items-center gap-5">
             <img
               src="/assets/image/shanu.png"
@@ -30,7 +30,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 xl:row-span-3">
+        <div className="cursor-target col-span-1 xl:row-span-3">
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col gap-5">
             <img
               src="/assets/image/man.png"
@@ -46,7 +46,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 xl:row-span-4">
+        <div className="cursor-target col-span-1 xl:row-span-4">
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg p-4 flex flex-col">
             <img
               src="/assets/image/icons.png"
@@ -55,7 +55,7 @@ const About = () => {
             />
           </div>
         </div>
-        <div className="xl:col-span-2 xl:row-span-3">
+        <div className="cursor-target xl:col-span-2 xl:row-span-3">
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col gap-5">
             <img
               src="/assets/grid3.png"
@@ -76,7 +76,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="xl:col-span-1 xl:row-span-2">
+        <div className="cursor-target xl:col-span-1 xl:row-span-2">
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col gap-5">
             <img
               src="/assets/grid4.png"

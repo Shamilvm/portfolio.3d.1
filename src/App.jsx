@@ -7,11 +7,13 @@ import Navbar from "./sections/Navbar";
 import Projects from "./sections/Projects";
 import Resume from "./sections/Resume";
 import LoaderWrapper from "./components/LoaderWrapper";
+import TargetCursor from "./components/ui/target-cursor";
 
 function App() {
   return (
     <Router>
       <LoaderWrapper>
+        <TargetCursor />
         <Routes>
           <Route
             path="/"

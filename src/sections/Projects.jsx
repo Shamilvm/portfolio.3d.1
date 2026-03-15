@@ -64,7 +64,7 @@ const Projects = () => {
     <section id="work" className="c-space my-20">
       <p className="sm:text-4xl text-3xl font-semibold">My Work</p>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 w-full">
-        <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-gray-700">
+        <div className="cursor-target flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-gray-700">
           <div className="absolute top-0 right-0">
             <img
               src={currentProject.spotlight}
@@ -125,7 +125,7 @@ const Projects = () => {
             </button>
           </div>
         </div>
-        <div className="border border-gray-800 bg-black-950 rounded-lg h-96 md:h-full">
+        <div className="cursor-target border border-gray-800 bg-black-950 rounded-lg h-96 md:h-full">
           {/* <Leva /> */}
           <Canvas>
             <ambientLight intensity={Math.PI} />

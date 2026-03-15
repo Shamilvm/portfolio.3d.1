@@ -1,6 +1,10 @@
 @import url("https://fonts.cdnfonts.com/css/general-sans");
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #ffffff;
+}
+
 * {
   scroll-behavior: smooth;
 }

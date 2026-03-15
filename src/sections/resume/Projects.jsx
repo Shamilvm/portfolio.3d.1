@@ -3,9 +3,9 @@ import { ArrowUpRight } from "lucide-react";
 export function Projects({ data }) {
   return (
     <div id="projects" className="py-10">
-      <h2 className="font-medium text-primary/90 text-base">projects.</h2>
+      <h2 className="font-medium text-primary text-base">projects.</h2>
 
-      <ul className="flex flex-col gap-12 mt-4 font-normal text-primary/90 text-base">
+      <ul className="flex flex-col gap-12 mt-4 font-normal text-primary text-base">
         {Object.entries(data)
           .slice(0, 3)
           .map(([key, value]) => (
@@ -36,7 +36,7 @@ export function Projects({ data }) {
                   </div>
                 </div>
 
-                <ul className="space-y-1 mt-1 pl-3 text-muted-foreground text-sm text-justify list-disc">
+                <ul className="space-y-1 mt-1 pl-3 text-primary/80 text-sm text-justify list-disc">
                   {value.DESCRIPTION.map((desc, index) => (
                     <li key={index}>
                       <span>{desc}</span>

@@ -3,15 +3,15 @@ import { ArrowUpRight } from "lucide-react";
 export function Experience({ data }) {
   return (
     <div id="experience" className="py-10">
-      <h2 className="font-medium text-primary/90 text-base">experience.</h2>
+      <h2 className="font-medium text-primary text-base">experience.</h2>
 
-      <ul className="flex flex-col gap-12 mt-4 font-normal text-primary/90 text-base">
+      <ul className="flex flex-col gap-12 mt-4 font-normal text-primary text-base">
         {Object.entries(data).map(([key, value]) => (
           <li key={key} className="cursor-target">
             <div className="pl-4 border-muted-foreground hover:border-primary border-l size-full transition-all duration-300">
               <div className="flex sm:flex-row flex-col justify-between items-start">
                 <div>
-                  <p className="text-primary/90 text-lg">
+                  <p className="text-primary text-lg">
                     {value.POSITION}{" "}
                     <span className="inline-block bg-gray-700 max-sm:mb-2 ml-2 px-2 py-1 rounded text-xs">
                       {value.LOCATION}
@@ -34,7 +34,7 @@ export function Experience({ data }) {
                 </p>
               </div>
 
-              <ul className="space-y-1 mt-1 pl-3 text-muted-foreground text-sm text-justify list-disc">
+              <ul className="space-y-1 mt-1 pl-3 text-primary/80 text-sm text-justify list-disc">
                 {value.DESCRIPTION.map((desc, index) => (
                   <li key={index}>
                     <span>{desc}</span>

@@ -25,7 +25,7 @@ const Contact = () => {
           to_email: "shanushamil086@gmail.com",
           message: form.message,
         },
-        "rLHkTGyrTfoHwxyuV"
+        "rLHkTGyrTfoHwxyuV",
       );
 
       setLoading(false);
@@ -62,7 +62,7 @@ const Contact = () => {
             onSubmit={handleSubmit}
             className="mt-12 flex flex-col space-y-7"
           >
-            <label className="space-y-3">
+            <label className="cursor-target space-y-3">
               <span className="text-md px-2 text-gray-400">Full Name</span>
               <input
                 type="text"
@@ -74,7 +74,7 @@ const Contact = () => {
                 placeholder="Your Name..."
               />
             </label>
-            <label className="space-y-3">
+            <label className="cursor-target space-y-3">
               <span className="text-md px-2 text-gray-400">Email</span>
               <input
                 type="email"
@@ -86,7 +86,7 @@ const Contact = () => {
                 placeholder="example@gmail.com"
               />
             </label>
-            <label className="space-y-3">
+            <label className="cursor-target space-y-3">
               <span className="text-md px-2 text-gray-400">Message</span>
               <textarea
                 name="message"
@@ -99,7 +99,7 @@ const Contact = () => {
               />
             </label>
             <button
-              className="bg-gray-800 px-5 py-2 min-h-10 rounded-2xl shadow-2xl flex justify-center items-center text-md text-white gap-3 font-semibold cursor-pointer"
+              className="cursor-target bg-gray-800 px-5 py-2 min-h-10 rounded-2xl shadow-2xl flex justify-center items-center text-md text-white gap-3 font-semibold cursor-pointer"
               type="submit"
               disabled={loading}
             >

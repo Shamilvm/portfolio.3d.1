@@ -154,7 +154,7 @@ export const resumeData = {
     PRONOUN: "he/him",
     HEADLINE:
       "Passionate about building high-performance and scalable applications.",
-    RESUME: "",
+    // RESUME: "",
     EMAIL: "mailto:shamilvilakkumadathil@gmail.com",
     GITHUB: "https://github.com/Shamilvm",
     LINKEDIN: "https://www.linkedin.com/in/shamilvm/",
