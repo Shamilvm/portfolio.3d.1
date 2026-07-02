@@ -1,38 +1,74 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import About from "./sections/About";
-import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import Hero from "./sections/Hero";
 import Navbar from "./sections/Navbar";
-import Projects from "./sections/Projects";
-import Resume from "./sections/Resume";
-import LoaderWrapper from "./components/LoaderWrapper";
-import TargetCursor from "./components/ui/target-cursor";
-import NotFound from "./sections/NotFound";
+import PageSEO from "./components/PageSEO";
+import LandingLoader from "./components/LandingLoader";
+import DeferredTargetCursor from "./components/DeferredTargetCursor";
+import {
+  PAGE_SEO,
+  getPersonJsonLd,
+  getWebsiteJsonLd,
+} from "./constants/seo";
+
+const About = lazy(() => import("./sections/About"));
+const Projects = lazy(() => import("./sections/Projects"));
+const Contact = lazy(() => import("./sections/Contact"));
+const Resume = lazy(() => import("./sections/Resume"));
+const NotFound = lazy(() => import("./sections/NotFound"));
+
+const homeJsonLd = [getPersonJsonLd(), getWebsiteJsonLd()];
+
+const homePreload = (
+  <>
+    <Navbar />
+    <Hero />
+  </>
+);
 
 function App() {
   return (
     <Router>
-      <LoaderWrapper>
-        <TargetCursor />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <main className="max-w-7xl mx-auto">
-                <Navbar />
-                <Hero />
-                <About />
-                <Projects />
-                <Contact />
+      <DeferredTargetCursor />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <PageSEO {...PAGE_SEO.home} jsonLd={homeJsonLd} />
+              <LandingLoader preload={homePreload}>
+                <Suspense fallback={null}>
+                  <About />
+                </Suspense>
+                <Suspense fallback={null}>
+                  <Projects />
+                </Suspense>
+                <Suspense fallback={null}>
+                  <Contact />
+                </Suspense>
                 <Footer />
-              </main>
-            }
-          />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </LoaderWrapper>
+              </LandingLoader>
+            </>
+          }
+        />
+        <Route
+          path="/resume"
+          element={
+            <Suspense fallback={null}>
+              <Resume />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={null}>
+              <NotFound />
+            </Suspense>
+          }
+        />
+      </Routes>
     </Router>
   );
 }

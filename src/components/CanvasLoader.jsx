@@ -1,16 +1,16 @@
-import { Html, useProgress } from "@react-three/drei";
+import { Html } from "@react-three/drei";
 
 const CanvasLoader = () => {
   // const { progress } = useProgress();
   return (
     <Html center>
       <div className="loader">
-        <p>Shamil</p>
+        {/* <p>Shamil</p>
         <div className="words">
           <span className="word">Vm</span>
           <span className="word">Vm</span>
           <span className="word">Vm</span>
-        </div>
+        </div> */}
       </div>
     </Html>
   );

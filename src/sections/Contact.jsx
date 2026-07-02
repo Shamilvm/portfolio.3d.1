@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const formRef = useRef();
@@ -15,7 +14,8 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      await emailjs.send(
+      const emailjs = await import("@emailjs/browser");
+      await emailjs.default.send(
         "service_apcutmj",
         "template_z4qt96n",
         {
@@ -41,16 +41,20 @@ const Contact = () => {
 
   return (
     <section id="contact" className="c-space my-20">
-      <div className="relative min-h-screen flex items-center justify-center flex-col">
+      <div className="relative py-16 sm:py-24 flex items-center justify-center flex-col">
         <img
           src="/assets/terminal.png"
           alt=""
-          className="absolute inset-0 min-h-screen hidden sm:block"
+          width={1920}
+          height={1080}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover hidden sm:block opacity-40 pointer-events-none"
         />
-        <div className="max-w-3xl relative z-10 sm:px-10 px-5 mt-12">
-          <h3 className="sm:text-4xl text-3xl font-semibold text-white">
+        <div className="max-w-3xl relative z-10 sm:px-10 px-5">
+          <h2 className="sm:text-4xl text-3xl font-semibold text-white">
             Let's talk
-          </h3>
+          </h2>
           <p className="text-md text-gray-400 mt-3">
             Whether you're dreaming up a bold new website, leveling up your
             current platform, or bringing a one-of-a-kind idea to life, I'm
@@ -108,6 +112,10 @@ const Contact = () => {
               <img
                 src="/assets/arrow-up.png"
                 alt=""
+                width={10}
+                height={10}
+                loading="lazy"
+                decoding="async"
                 className="w-2.5 h-2.5 object-contain invert brightness-0"
               />
             </button>

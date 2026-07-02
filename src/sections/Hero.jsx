@@ -1,99 +1,44 @@
-import { PerspectiveCamera } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import Setup from "../components/Setup";
-import CanvasLoader from "../components/CanvasLoader";
-import { Leva, useControls } from "leva";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants";
-import HeroCamera from "../components/HeroCamera";
 import Button from "../components/Button";
+import HeroPoster from "../components/HeroPoster";
+import HeroCanvas from "../components/HeroCanvas";
+import { useSectionVisibility } from "../hooks/useSectionVisibility";
 
 const Hero = () => {
-  // const controls = useControls("Setup", {
-  //   positionX: {
-  //     value: 3.9,
-  //     min: -10,
-  //     max: 10,
-  //   },
-  //   positionY: {
-  //     value: -6.1,
-  //     min: -10,
-  //     max: 10,
-  //   },
-  //   positionZ: {
-  //     value: -8.9,
-  //     min: -10,
-  //     max: 10,
-  //   },
-  //   rotationX: {
-  //     value: -2.8,
-  //     min: -10,
-  //     max: 10,
-  //   },
-  //   rotationY: {
-  //     value: -1.6,
-  //     min: -10,
-  //     max: 10,
-  //   },
-  //   rotationZ: {
-  //     value: 3.3,
-  //     min: -10,
-  //     max: 10,
-  //   },
-  //   scale: {
-  //     value: 2.1,
-  //     min: -10,
-  //     max: 10,
-  //   },
-  // });
-
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  const { ref, isVisible } = useSectionVisibility("100px");
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
+
   return (
     <section
+      ref={ref}
       id="home"
       className="h-[90vh] sm:min-h-screen w-full flex flex-col relative"
     >
-      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-32 c-space gap-3">
-        <p className="sm:text-3xl text-xl font-medium text-gray-400 text-center">
+      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-32 c-space gap-3 relative z-10">
+        <h1 className="sm:text-3xl text-xl font-medium text-gray-400 text-center">
           Hi, I am Shamil Vm <span className="waving-hand">👋</span>
-        </p>
+        </h1>
         <p className="text-center sm:text-lg text-xs text-gray-500 !leading-normal">
           Full-Stack Developer | Turning ideas into Experience
         </p>
       </div>
-      <div className="w-full h-full absolute inset-0">
-        {/* <Leva /> */}
-        <Canvas className="w-full h-full">
-          <Suspense fallback={<CanvasLoader />}>
-            <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-            <HeroCamera>
-              <Setup
-                position={sizes.deskPosition}
-                // position={[controls.positionX,controls.positionY,controls.positionZ]}
-                rotation={sizes.deskRotation}
-                // rotation={[controls.rotationX, controls.rotationY, controls.rotationZ]}
-                scale={sizes.deskScale}
-                // scale={controls.scale}
-              />
-            </HeroCamera>
-            {/* <group>
-              <Target position={sizes.targetPosition} />
-              <ReactLogo position={sizes.reactLogoPosition} />
-              <Cube position={sizes.cubePosition} />
-              <Rings position={sizes.ringPosition} />
-            </group> */}
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} intensity={0.5} />
-          </Suspense>
-        </Canvas>
-      </div>
 
-      {/* <span class="scroll-btn"></span> */}
+      <div className="w-full h-full absolute inset-0">
+        {isMobile ? (
+          <HeroPoster />
+        ) : (
+          <HeroCanvas
+            sizes={sizes}
+            isMobile={isMobile}
+            isVisible={isVisible}
+          />
+        )}
+      </div>
 
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
         <a href="#contact" className="w-fit">

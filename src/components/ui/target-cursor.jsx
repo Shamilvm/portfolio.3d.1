@@ -21,20 +21,17 @@ const TargetCursor = ({
 
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined"
-      ? window.innerWidth < 768 ||
-          ("ontouchstart" in window || navigator.maxTouchPoints > 0)
+      ? window.matchMedia("(max-width: 767px)").matches
       : false
   );
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(
-        window.innerWidth < 768 ||
-          ("ontouchstart" in window || navigator.maxTouchPoints > 0)
-      );
-    };
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const checkMobile = () => setIsMobile(mediaQuery.matches);
+
+    checkMobile();
+    mediaQuery.addEventListener("change", checkMobile);
+    return () => mediaQuery.removeEventListener("change", checkMobile);
   }, []);
 
   const moveCursor = useCallback((x, y) => {
@@ -318,6 +315,10 @@ const TargetCursor = ({
       });
     }
   }, [spinDuration, isMobile]);
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <div

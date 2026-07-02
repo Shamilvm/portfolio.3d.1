@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
@@ -11,13 +11,18 @@ const About = () => {
   };
 
   return (
-    <section className="c-space my-20" id="about">
+    <section className="c-space my-20" id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading" className="sr-only">About Shamil Vm</h2>
       <div className="grid xl:grid-cols-3 xl:grid-rows-3 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="cursor-target col-span-1 xl:row-span-3">
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col justify-between items-center gap-5">
             <img
               src="/assets/image/shanu.png"
-              alt=""
+              alt="Shamil portrait"
+              width={150}
+              height={170}
+              loading="lazy"
+              decoding="async"
               className="sm:w-[150px] h-[170px] border border-gray-800 rounded-2xl object-contain"
             />
             <div>
@@ -34,7 +39,11 @@ const About = () => {
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col gap-5">
             <img
               src="/assets/image/man.png"
-              alt=""
+              alt="Developer illustration"
+              width={200}
+              height={200}
+              loading="lazy"
+              decoding="async"
               className="h-[200px] object-contain"
             />
             <div>
@@ -50,7 +59,11 @@ const About = () => {
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg p-4 flex flex-col">
             <img
               src="/assets/image/icons.png"
-              alt=""
+              alt="Technology icons"
+              width={600}
+              height={440}
+              loading="lazy"
+              decoding="async"
               className="w-full sm:h-[440px] h-fit object-contain"
             />
           </div>
@@ -59,7 +72,11 @@ const About = () => {
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col gap-5">
             <img
               src="/assets/grid3.png"
-              alt=""
+              alt="Code workspace"
+              width={800}
+              height={150}
+              loading="lazy"
+              decoding="async"
               className="w-full sm:h-[150px] h-fit object-contain"
             />
             <div>
@@ -80,7 +97,11 @@ const About = () => {
           <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col gap-5">
             <img
               src="/assets/grid4.png"
-              alt=""
+              alt="Globe illustration"
+              width={400}
+              height={276}
+              loading="lazy"
+              decoding="async"
               className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"
             />
             <div className="space-y-2">
@@ -90,8 +111,10 @@ const About = () => {
                 onClick={handleCopy}
               >
                 <img
-                  src={hasCopied ? "assets/tick.svg" : "assets/copy.svg"}
-                  alt=""
+                  src={hasCopied ? "/assets/tick.svg" : "/assets/copy.svg"}
+                  alt={hasCopied ? "Copied" : "Copy email"}
+                  width={20}
+                  height={20}
                 />
                 <p className="lg:text-lg md:text-xl font-medium text-white">
                   shamilvilakkumadathil@gmail.com

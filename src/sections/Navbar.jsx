@@ -1,7 +1,22 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { navLinks } from "../constants";
-import { AnimatedText } from "../components/ui/animated-text";
+
+const AnimatedText = lazy(() =>
+  import("../components/ui/animated-text").then((module) => ({
+    default: module.AnimatedText,
+  }))
+);
+
+const NavLinkFallback = ({ href, children, onClick }) => (
+  <a
+    href={href}
+    onClick={onClick}
+    className="relative block w-fit leading-[1.2rem] rounded-lg p-0 text-base text-primary/90 whitespace-nowrap sm:px-2 sm:py-1 text-neutral-400 hover:text-white transition-colors"
+  >
+    {children}
+  </a>
+);
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +38,15 @@ const Navbar = () => {
               className="cursor-target text-neutral-400 hover:text-white sm:w-full sm:rounded-md"
               onClick={toggleMenu}
             >
-              <AnimatedText href={href}>{item.name}</AnimatedText>
+              <Suspense
+                fallback={
+                  <NavLinkFallback href={href} onClick={toggleMenu}>
+                    {item.name}
+                  </NavLinkFallback>
+                }
+              >
+                <AnimatedText href={href}>{item.name}</AnimatedText>
+              </Suspense>
             </li>
           );
         })}
@@ -39,7 +62,11 @@ const Navbar = () => {
             <img
               src="/assets/logo/logooo.png"
               alt="Shamil Vm"
-              className=" h-48"
+              width={192}
+              height={192}
+              fetchPriority="high"
+              decoding="async"
+              className="h-48 w-auto"
             />
           </a>
           <button
@@ -48,7 +75,7 @@ const Navbar = () => {
             aria-label="Toggle Menu"
           >
             <img
-              src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
+              src={isOpen ? "/assets/close.svg" : "/assets/menu.svg"}
               alt=""
               className="w-6 h-6"
             />
