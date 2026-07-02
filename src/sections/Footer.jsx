@@ -1,8 +1,8 @@
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <section className="c-space py-7 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-5">
-      <div className="flex gap-3">
+    <section className="c-space py-4 border-t border-gray-700 flex flex-col sm:flex-row justify-center items-center gap-5">
+      {/* <div className="flex gap-3">
         <a
           href="https://github.com/Shamilvm"
           target="_blank"
@@ -32,9 +32,9 @@ const Footer = () => {
             className="w-1/2 h-1/2"
           />
         </a>
-      </div>
-      <div className="text-white flex gap-2 text-sm">
-        <p>© {currentYear} Shamil Vm. All rights reserved.</p>
+      </div> */}
+      <div className="text-white/50 flex gap-2 text-sm">
+        <p>© {currentYear} Shamil Vm | All rights reserved.</p>
       </div>
     </section>
   );

@@ -15,8 +15,11 @@ const HeroCanvas = ({ sizes, isMobile, isVisible }) => {
     <Canvas
       className="w-full h-full touch-none"
       dpr={getCanvasDpr()}
-      gl={getCanvasGl(isMobile)}
+      gl={getCanvasGl(isMobile, true)}
       frameloop={isVisible ? "always" : "demand"}
+      onCreated={({ gl }) => {
+        gl.setClearColor(0x000000, 0);
+      }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <PerspectiveCamera makeDefault position={[0, 0, 30]} />

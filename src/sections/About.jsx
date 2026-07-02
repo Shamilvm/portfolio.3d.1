@@ -11,11 +11,17 @@ const About = () => {
   };
 
   return (
-    <section className="c-space my-20" id="about" aria-labelledby="about-heading">
-      <h2 id="about-heading" className="sr-only">About Shamil Vm</h2>
+    <section
+      className="c-space my-20"
+      id="about"
+      aria-labelledby="about-heading"
+    >
+      <h2 id="about-heading" className="sr-only">
+        About Shamil Vm
+      </h2>
       <div className="grid xl:grid-cols-3 xl:grid-rows-3 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="cursor-target col-span-1 xl:row-span-3">
-          <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col justify-between items-center gap-5">
+          <div className="w-full h-full border border-white/10 bg-white/[0.03] backdrop-blur-md rounded-lg sm:p-7 p-4 flex flex-col justify-between items-center gap-5">
             <img
               src="/assets/image/shanu.png"
               alt="Shamil portrait"
@@ -23,7 +29,7 @@ const About = () => {
               height={170}
               loading="lazy"
               decoding="async"
-              className="sm:w-[150px] h-[170px] border border-gray-800 rounded-2xl object-contain"
+              className="sm:w-[150px] h-[170px] border rounded-2xl object-contain"
             />
             <div>
               <p className="text-xl font-semibold mb-2 text-white">
@@ -36,7 +42,7 @@ const About = () => {
           </div>
         </div>
         <div className="cursor-target col-span-1 xl:row-span-3">
-          <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col gap-5">
+          <div className="w-full h-full border border-white/10 bg-white/[0.03] backdrop-blur-md rounded-lg sm:p-7 p-4 flex flex-col gap-5">
             <img
               src="/assets/image/man.png"
               alt="Developer illustration"
@@ -56,7 +62,7 @@ const About = () => {
           </div>
         </div>
         <div className="cursor-target col-span-1 xl:row-span-4">
-          <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg p-4 flex flex-col">
+          <div className="w-full h-full border border-white/10 bg-black/20 backdrop-blur-md rounded-lg flex flex-col">
             <img
               src="/assets/image/icons.png"
               alt="Technology icons"
@@ -64,12 +70,12 @@ const About = () => {
               height={440}
               loading="lazy"
               decoding="async"
-              className="w-full sm:h-[440px] h-fit object-contain"
+              className="w-full sm:h-[480px] h-fit object-fit"
             />
           </div>
         </div>
         <div className="cursor-target xl:col-span-2 xl:row-span-3">
-          <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col gap-5">
+          <div className="w-full h-full border border-white/10 bg-white/[0.03] backdrop-blur-md rounded-lg sm:p-7 p-4 flex flex-col gap-5">
             <img
               src="/assets/grid3.png"
               alt="Code workspace"
@@ -94,7 +100,7 @@ const About = () => {
           </div>
         </div>
         <div className="cursor-target xl:col-span-1 xl:row-span-2">
-          <div className="w-full h-full border border-gray-700 bg-gray-950 rounded-lg sm:p-7 p-4 flex flex-col gap-5">
+          <div className="w-full h-full border border-white/10 bg-white/[0.03] backdrop-blur-md rounded-lg sm:p-7 p-4 flex flex-col gap-5">
             <img
               src="/assets/grid4.png"
               alt="Globe illustration"
@@ -116,7 +122,7 @@ const About = () => {
                   width={20}
                   height={20}
                 />
-                <p className="lg:text-lg md:text-xl font-medium text-white">
+                <p className="lg:text-md font-medium text-white/80">
                   shamilvilakkumadathil@gmail.com
                 </p>
               </div>

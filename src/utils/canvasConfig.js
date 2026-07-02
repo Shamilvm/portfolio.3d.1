@@ -3,10 +3,11 @@ export const canvasGl = {
   antialias: true,
 };
 
-export function getCanvasGl(isMobile = false) {
+export function getCanvasGl(isMobile = false, transparent = false) {
   return {
     powerPreference: "high-performance",
     antialias: !isMobile,
+    alpha: transparent,
   };
 }
 

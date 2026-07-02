@@ -5,6 +5,7 @@ import Hero from "./sections/Hero";
 import Navbar from "./sections/Navbar";
 import PageSEO from "./components/PageSEO";
 import LandingLoader from "./components/LandingLoader";
+import SiteBackground from "./components/SiteBackground";
 import DeferredTargetCursor from "./components/DeferredTargetCursor";
 import {
   PAGE_SEO,
@@ -30,8 +31,10 @@ const homePreload = (
 function App() {
   return (
     <Router>
-      <DeferredTargetCursor />
-      <Routes>
+      <SiteBackground />
+      <div className="relative z-10">
+        <DeferredTargetCursor />
+        <Routes>
         <Route
           path="/"
           element={
@@ -69,6 +72,7 @@ function App() {
           }
         />
       </Routes>
+      </div>
     </Router>
   );
 }

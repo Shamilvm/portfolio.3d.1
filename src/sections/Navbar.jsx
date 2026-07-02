@@ -55,44 +55,52 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 bg-black/90">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center py-5 mx-auto c-space relative">
-          <a href="/" className="absolute sm:left-0 -left-4">
-            <img
-              src="/assets/logo/logooo.png"
-              alt="Shamil Vm"
-              width={192}
-              height={192}
-              fetchPriority="high"
-              decoding="async"
-              className="h-48 w-auto"
-            />
-          </a>
-          <button
-            onClick={toggleMenu}
-            className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex justify-end w-full cursor-pointer"
-            aria-label="Toggle Menu"
-          >
-            <img
-              src={isOpen ? "/assets/close.svg" : "/assets/menu.svg"}
-              alt=""
-              className="w-6 h-6"
-            />
-          </button>
-          <nav className="sm:flex w-full hidden justify-end">
+    <header className="fixed top-0 right-0 left-0 z-50 border-b border-white/5 overflow-hidden">
+      <div className="navbar-bg" aria-hidden="true">
+        <div className="navbar-bg__grid" />
+      </div>
+      <div className="relative z-10 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-center py-5 mx-auto c-space relative">
+            <a href="/" className="absolute sm:left-0 -left-4">
+              <img
+                src="/assets/logo/logooo.png"
+                alt="Shamil Vm"
+                width={192}
+                height={192}
+                fetchPriority="high"
+                decoding="async"
+                className="h-48 w-auto"
+              />
+            </a>
+            <button
+              onClick={toggleMenu}
+              className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex justify-end w-full cursor-pointer"
+              aria-label="Toggle Menu"
+            >
+              <img
+                src={isOpen ? "/assets/close.svg" : "/assets/menu.svg"}
+                alt=""
+                className="w-6 h-6"
+              />
+            </button>
+            <nav className="sm:flex w-full hidden justify-end">
+              <NavItems />
+            </nav>
+          </div>
+        </div>
+        <div
+          className={`absolute left-0 h-screen right-0 transition-all duration-300 ease-in-out overflow-hidden z-20 mx-auto sm:hidden block ${
+            isOpen ? "max-h-screen" : "max-h-0"
+          }`}
+        >
+          <div className="navbar-mobile-bg" aria-hidden="true">
+            <div className="navbar-mobile-bg__grid" />
+          </div>
+          <nav className="relative z-10 p-5 backdrop-blur-md">
             <NavItems />
           </nav>
         </div>
-      </div>
-      <div
-        className={`absolute left-0 h-screen right-0 bg-black-200 backdrop-blur-sm transition-all duration-300 ease-in-out overflow-hidden z-20 mx-auto sm:hidden block ${
-          isOpen ? "max-h-screen" : "max-h-0"
-        }`}
-      >
-        <nav className="p-5">
-          <NavItems />
-        </nav>
       </div>
     </header>
   );

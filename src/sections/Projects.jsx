@@ -4,7 +4,6 @@ import { Canvas } from "@react-three/fiber";
 import { Center, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import CanvasLoader from "../components/CanvasLoader";
 import AsusLaptop, { preloadAsusModel } from "../components/AsusLaptop";
-import HeroCamera from "../components/HeroCamera";
 import { useSectionVisibility } from "../hooks/useSectionVisibility";
 import { canvasGl, getCanvasDpr } from "../utils/canvasConfig";
 
@@ -118,9 +117,10 @@ const Projects = () => {
             </button>
           </div>
         </div>
-        <div className="cursor-target border border-gray-800 bg-black-950 rounded-lg h-96 md:h-full">
+        <div className="cursor-target border border-white/10 bg-white/[0.03] backdrop-blur-md rounded-lg h-96 md:h-full">
           {hasBeenVisible ? (
             <Canvas
+              className="touch-none"
               dpr={getCanvasDpr()}
               gl={canvasGl}
               frameloop={isVisible ? "always" : "demand"}
@@ -130,19 +130,24 @@ const Projects = () => {
               <Center>
                 <Suspense fallback={<CanvasLoader />}>
                   <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-                  <HeroCamera>
-                    <AsusLaptop
-                      texture={currentProject.texture}
-                      position={[0.4, -2.5, 1.3]}
-                      rotation={[-3.0, 3.0, 3.1]}
-                      scale={30}
-                    />
-                  </HeroCamera>
+                  <AsusLaptop
+                    texture={currentProject.texture}
+                    position={[0.4, -2.5, 1.3]}
+                    rotation={[-3.0, 3.0, 3.1]}
+                    scale={40}
+                  />
                   <ambientLight intensity={1} />
                   <directionalLight position={[10, 10, 10]} intensity={0.5} />
                 </Suspense>
               </Center>
-              <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+              <OrbitControls
+                enableZoom={false}
+                enablePan={false}
+                minAzimuthAngle={-Infinity}
+                maxAzimuthAngle={Infinity}
+                minPolarAngle={0.1}
+                maxPolarAngle={Math.PI - 0.1}
+              />
             </Canvas>
           ) : (
             <div className="w-full h-full flex items-center justify-center text-gray-500 text-sm">

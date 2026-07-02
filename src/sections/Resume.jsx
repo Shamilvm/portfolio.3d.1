@@ -45,7 +45,7 @@ const Resume = () => {
         {...PAGE_SEO.resume}
         jsonLd={[getPersonJsonLd(), getResumePageJsonLd()]}
       />
-      <main className="min-h-screen bg-black">
+      <main className="min-h-screen relative">
         <Navbar />
 
         <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-white relative z-10">

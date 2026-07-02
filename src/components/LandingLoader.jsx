@@ -54,7 +54,7 @@ const LandingLoader = ({ preload, children }) => {
 
       {!isReady && (
         <div
-          className="fixed inset-0 bg-black flex flex-col justify-center items-center z-[999999] text-white"
+          className="fixed inset-0 bg-black/85 backdrop-blur-sm flex flex-col justify-center items-center z-[999999] text-white"
           aria-live="polite"
           aria-busy="true"
         >
