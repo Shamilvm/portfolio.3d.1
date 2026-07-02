@@ -3,7 +3,14 @@ export const canvasGl = {
   antialias: true,
 };
 
+export function getCanvasGl(isMobile = false) {
+  return {
+    powerPreference: "high-performance",
+    antialias: !isMobile,
+  };
+}
+
 export function getCanvasDpr() {
   if (typeof window === "undefined") return [1, 2];
-  return window.innerWidth < 768 ? [1, 1.5] : [1, 2];
+  return window.innerWidth < 768 ? [1, 1.25] : [1, 2];
 }

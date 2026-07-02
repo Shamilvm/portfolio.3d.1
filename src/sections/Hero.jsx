@@ -1,10 +1,8 @@
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants";
 import Button from "../components/Button";
-import HeroPoster from "../components/HeroPoster";
 import HeroCanvas from "../components/HeroCanvas";
 import { useSectionVisibility } from "../hooks/useSectionVisibility";
-
 const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -29,17 +27,12 @@ const Hero = () => {
       </div>
 
       <div className="w-full h-full absolute inset-0">
-        {isMobile ? (
-          <HeroPoster />
-        ) : (
-          <HeroCanvas
-            sizes={sizes}
-            isMobile={isMobile}
-            isVisible={isVisible}
-          />
-        )}
+        <HeroCanvas
+          sizes={sizes}
+          isMobile={isMobile}
+          isVisible={isVisible}
+        />
       </div>
-
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
         <a href="#contact" className="w-fit">
           <Button

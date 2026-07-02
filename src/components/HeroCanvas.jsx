@@ -4,7 +4,7 @@ import { Suspense, useEffect } from "react";
 import Setup, { preloadSetup } from "./Setup";
 import CanvasLoader from "./CanvasLoader";
 import HeroCamera from "./HeroCamera";
-import { canvasGl, getCanvasDpr } from "../utils/canvasConfig";
+import { getCanvasDpr, getCanvasGl } from "../utils/canvasConfig";
 
 const HeroCanvas = ({ sizes, isMobile, isVisible }) => {
   useEffect(() => {
@@ -13,9 +13,9 @@ const HeroCanvas = ({ sizes, isMobile, isVisible }) => {
 
   return (
     <Canvas
-      className="w-full h-full"
+      className="w-full h-full touch-none"
       dpr={getCanvasDpr()}
-      gl={canvasGl}
+      gl={getCanvasGl(isMobile)}
       frameloop={isVisible ? "always" : "demand"}
     >
       <Suspense fallback={<CanvasLoader />}>
