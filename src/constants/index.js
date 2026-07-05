@@ -28,6 +28,90 @@ export const navLinks = [
 
 export const myProjects = [
   {
+    title: "Kreatif - Agency Website",
+    desc: "A interactive website designed to showcase journey of Kreatif advertising agency. With a clean, modern interface, it highlights their proficiency in branding, naming, packaging, logo design, digital marketing, web development and other creative services.",
+    subdesc:
+      "Built as a agency website with Next.js, Tailwind CSS, TypeScript, JavaScript, GSAP and Framer Motion.",
+    href: "https://kreatifads.com/",
+    texture: "/textures/project/kreatif.png",
+    logo: "/assets/logo/kreatif.png",
+    logoStyle: {
+      backgroundColor: "#050505",
+      border: "0.2px solid #002286",
+      boxShadow: "0px 0px 60px 0px #0022864D",
+    },
+    spotlight: "/assets/spotlight4.png",
+    tags: [
+      {
+        id: 1,
+        name: "Next.js",
+        path: "/assets/icons/nextjs.png",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "/assets/icons/tailwindcss.png",
+      },
+      {
+        id: 3,
+        name: "TypeScript",
+        path: "/assets/icons/typescript.png",
+      },
+      {
+        id: 4,
+        name: "JavaScript",
+        path: "/assets/icons/javascript.png",
+      },
+      {
+        id: 5,
+        name: "GSAP",
+        path: "/assets/icons/gsap.png",
+      },
+      {
+        id: 6,
+        name: "Framer Motion",
+        path: "/assets/icons/framer-motion.png",
+      },
+    ],
+  },
+  {
+    title: "Book Undo",
+    desc: "Book Undo is an open source web application that helps communities keep books in circulation instead of on shelves. List books to give away, borrow from neighbours, swap textbooks, sponsor school libraries, read public-domain titles online, and discover libraries on a map.",
+    subdesc:
+      "Built as a community book circulation and donation network with Next.js, Tailwind CSS, TypeScript, and Framer MongoDB.",
+    href: "https://book-undo-1b8n.vercel.app/",
+    texture: "/textures/project/book-undo.png",
+    logo: "/assets/logo/book-undo.png",
+    logoStyle: {
+      backgroundColor: "#16120d",
+      border: "0.2px solid #1f5c3d",
+      boxShadow: "0px 0px 60px 0px #1f5c3d4D",
+    },
+    spotlight: "/assets/spotlight1.png",
+    tags: [
+      {
+        id: 1,
+        name: "Next.js",
+        path: "/assets/icons/nextjs.png",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "/assets/icons/tailwindcss.png",
+      },
+      {
+        id: 3,
+        name: "TypeScript",
+        path: "/assets/icons/typescript.png",
+      },
+      {
+        id: 4,
+        name: "MongoDB",
+        path: "/assets/icons/mongodb.png",
+      },
+    ],
+  },
+  {
     title: "CMMA - Maintenance Management System",
     desc: "Software for managing the assets of college and offices. It includes managing the hardware and software resources within college or office, stock management, maintenance of college computer lab and others. Still Updations going on...",
     subdesc:
